@@ -1,5 +1,7 @@
 package com.arimac.projectManegement.resource;
 
+import com.arimac.projectManegement.Annotations.Secured;
+import com.arimac.projectManegement.Filter.RoleDetails.Roles;
 import com.arimac.projectManegement.model.Project;
 import com.arimac.projectManegement.service.ProjectsService;
 
@@ -19,6 +21,7 @@ public class ProjectResource {
     ProjectsService projectsService = new ProjectsService();
 
     @GET
+    @Secured(Roles.ADMIN)
     public Response getAllProjects() throws SQLException, ClassNotFoundException {
 
         List<Project> listProj = projectsService.getProjects();
@@ -29,6 +32,7 @@ public class ProjectResource {
     }
 
     @POST
+    @Secured
     public Response saveProject(Project project) throws SQLException, ClassNotFoundException {
         int result = projectsService.saveProject(project);
         if(result == 1){

@@ -1,5 +1,6 @@
 package com.arimac.projectManegement.dao;
 
+import com.arimac.projectManegement.Annotations.Secured;
 import com.arimac.projectManegement.dbConnection.DBConnection;
 import com.arimac.projectManegement.model.Project;
 
